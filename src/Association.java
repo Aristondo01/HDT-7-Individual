@@ -1,4 +1,6 @@
-import java.util.Map;
+/*
+ * La implementación de esta clase se obtuvo gracias al material compartido en canvas
+ */
 public class Association <K,V> implements MapEntry<K,V>
 {
     protected K theKey;

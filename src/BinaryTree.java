@@ -1,3 +1,8 @@
+import java.util.Iterator;
+
+/*
+ * La implementación de esta clase se obtuvo gracias al material compartido en canvas
+ */
 public class BinaryTree<E>
 {
     /**
@@ -108,6 +113,7 @@ public class BinaryTree<E>
      */
     public void setLeft(BinaryTree<E> newLeft)
     {
+
         if (isEmpty()) return;
         if (left != null && left.parent() == this) left.setParent(null);
         left = newLeft;
@@ -168,6 +174,7 @@ public class BinaryTree<E>
         if (parent() == null) return this;
         else return parent().root();
     }
+
 
 
 
@@ -311,5 +318,21 @@ public class BinaryTree<E>
         else s.append(" -");
         s.append('>');
         return s.toString();
+    }
+
+    public void inorderIterator(BinaryTree arbol)
+    {
+        if (arbol.isEmpty())
+        {
+
+        }
+        else
+        {
+            inorderIterator(arbol.left());
+            System.out.println(arbol.toString());
+            inorderIterator(arbol.left());
+        }
+
+
     }
 }

@@ -1,48 +1,12 @@
-// This is an implementation of binary search trees.
-// (c) 1998, 2001 duane a. bailey
-
-import java.util.Iterator;
+import java.lang.reflect.Array;
 import java.util.Comparator;
-
-/**
- * A binary search tree structure.  This structure maintains data
- * in an ordered tree.  It does not keep the tree balanced, so performance
- * may degrade if the tree height is not optimal.
- * <P>
- * Example usage:
- * <P>
- * To create a Binary search tree containing the months of the year
- * and to print out this tree as it grows we could use the following.
- * <P>
- * <pre>
- * public static void main(String[] argv){
- *     BinarySearchTree test = new {@link  #BinarySearchTree()};
- *
- *     //declare an array of months
- *     String[] months = new String[]{"March", "May", "November", "August", 
- *                                    "April", "January", "December", "July",
- *                                    "February", "June", "October", "September"};
- *
- *     //add the months to the tree and print out the tree as it grows
- *     for(int i=0; i < months.length; i++){
- *        test.{@link #//add(Object) add(months[i])};
- *        System.out.println("Adding: " + months[i] + "\n" +test.{@link #treeString()});
- *      }
- *  }
- * </pre>
- *
- * @version $Id: BinarySearchTree.java 22 2006-08-21 19:27:26Z bailey $
- * @author, 2001 duane a. bailey
- * @see //SplayTree
- * @see BinaryTree
- */
-public class BinarySearchTree<E extends Comparable<E>>
-        // extends AbstractStructure<E> implements OrderedStructure<E>
-        // no las usuaremos por el momento
+import java.util.HashMap;
+import java.util.Iterator;
+/*
+* La implementación de esta clase se obtuvo gracias al material compartido en canvas
+*/
+public class BST<E extends Comparable<E>>
 {
-    /**
-     * A reference to the root of the tree
-     */
     protected BinaryTree<E> root;
 
     /**
@@ -65,7 +29,7 @@ public class BinarySearchTree<E extends Comparable<E>>
      *
      * @post Constructs an empty binary search tree
      */
-    public BinarySearchTree()
+    public BST()
     {
         this(new NaturalComparator<E>());
     }
@@ -75,7 +39,7 @@ public class BinarySearchTree<E extends Comparable<E>>
      *
      * @post Constructs an empty binary search tree
      */
-    public BinarySearchTree(Comparator<E> alternateOrder)
+    public BST(Comparator<E> alternateOrder)
     {
         root = EMPTY;
         count = 0;
@@ -172,7 +136,7 @@ public class BinarySearchTree<E extends Comparable<E>>
      *
      * @post Adds a value to binary search tree
      *
-     * @param ////val A reference to non-null object
+     * @param //val A reference to non-null object
      */
     public void add(E value)
     {
@@ -339,9 +303,9 @@ public class BinarySearchTree<E extends Comparable<E>>
      *
      * @return An iterator over binary search tree
      */
-    public Iterator<E> iterator()
+    public void iterator()
     {
-        return root.inorderIterator();
+        root.inorderIterator(root);
     }
 
     /**
@@ -377,11 +341,12 @@ public class BinarySearchTree<E extends Comparable<E>>
     public String toString()
     {
         StringBuffer s = new StringBuffer();
-        s.append("<BinarySearchTree:");
+        s.append("<BST:");
         if (!root.isEmpty()) {
             s.append(root);
         }
         s.append(">");
         return s.toString();
     }
+
 }

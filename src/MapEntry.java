@@ -1,3 +1,6 @@
+/*
+ * La implementación de esta clase se obtuvo gracias al material compartido en canvas
+ */
 public interface MapEntry<K,V>
 {
     public boolean equals(Object o);

@@ -1,7 +1,9 @@
 // A comparator that implements the natural ordering.
 // (c) 2001 duane a. bailey
 
-
+/*
+ * La implementación de esta clase se obtuvo gracias al material compartido en canvas
+ */
 
 import java.util.Comparator;
 
